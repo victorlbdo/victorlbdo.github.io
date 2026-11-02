@@ -13,20 +13,15 @@
 <style>
 /* Layout : hero nuit (bande sombre fixe) avec halos en mouvement → bandeau défilant → chiffres → études de cas en cartes → frise → "au-delà du CV" → contact. Ocre réservé aux surlignages et chiffres. */
 :root{
-  --bg:#F2F4F8; --surface:#FFFFFF; --ink:#101A30; --muted:#566279; --line:#DCE2EC;
-  --accent:#2F5BEA; --mark:#F2BE45;
-  --night:#0B1222; --night-2:#121C33; --night-ink:#EEF2FA; --night-muted:#A3AFC6;
+  --bg:#0B0B0C; --surface:#151517; --ink:#F2F0EB; --muted:#A8A59E; --line:#2A2A2D;
+  --accent:#C8B68E; --mark:#D2BE8E;
+  --night:#060607; --night-2:#111113; --night-ink:#F4F2ED; --night-muted:#A8A59E;
   --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
   --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0C1323; --surface:#141E33; --ink:#E8EDF7; --muted:#9BA7BE; --line:#243049;
-  --accent:#86A6FF; --mark:#E5B544; --night:#070C18; --night-2:#0F1830; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0C1323; --surface:#141E33; --ink:#E8EDF7; --muted:#9BA7BE; --line:#243049;
-  --accent:#86A6FF; --mark:#E5B544; --night:#070C18; --night-2:#0F1830; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -52,15 +47,15 @@ nav .links a:hover::after{transform:scaleX(1);transform-origin:left}
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--night);color:var(--night-ink);overflow:hidden;isolation:isolate}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:-1;animation:float 18s ease-in-out infinite alternate}
-.b1{width:34rem;height:34rem;background:#2F5BEA;top:-12rem;right:-8rem}
-.b2{width:26rem;height:26rem;background:#7C3AED;bottom:-12rem;left:-6rem;animation-duration:22s;opacity:.35}
-.b3{width:16rem;height:16rem;background:#F2BE45;top:40%;right:30%;opacity:.18;animation-duration:26s}
+.b1{width:34rem;height:34rem;background:#46576F;top:-12rem;right:-8rem}
+.b2{width:26rem;height:26rem;background:#3B3550;bottom:-12rem;left:-6rem;animation-duration:22s;opacity:.35}
+.b3{width:16rem;height:16rem;background:#C8B68E;top:40%;right:30%;opacity:.18;animation-duration:26s}
 @keyframes float{to{transform:translate(3rem,2.5rem) scale(1.12)}}
 .grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%)}
 .hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center;padding-block:5rem 4.5rem}
 .status{display:inline-flex;align-items:center;gap:.6rem;font:500 .78rem var(--mono);color:var(--night-muted);letter-spacing:.05em;padding:.4rem .9rem;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.04)}
-.dot{width:.5rem;height:.5rem;border-radius:50%;background:#34D399;position:relative}
-.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#34D399;animation:ping 1.8s var(--ease) infinite}
+.dot{width:.5rem;height:.5rem;border-radius:50%;background:#9FB89A;position:relative}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#9FB89A;animation:ping 1.8s var(--ease) infinite}
 @keyframes ping{to{transform:scale(3);opacity:0}}
 h1{font:800 clamp(2.6rem,7.4vw,5.4rem)/.98 var(--display);letter-spacing:-.035em;margin:1.4rem 0 1.2rem;text-wrap:balance}
 h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
@@ -77,7 +72,7 @@ h1 .hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--mark) 
 .lede{color:var(--night-muted);max-width:36rem;margin:.6rem 0 0;font-size:1.12rem}
 .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
 .btn{position:relative;font:600 1rem var(--body);padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease);border:0}
-.btn.primary{background:var(--mark);color:#101A30;box-shadow:0 10px 30px -10px color-mix(in srgb,var(--mark) 70%,transparent)}
+.btn.primary{background:var(--mark);color:#0E0E10;box-shadow:0 10px 30px -10px color-mix(in srgb,var(--mark) 70%,transparent)}
 .btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px color-mix(in srgb,var(--mark) 80%,transparent)}
 .btn.ghost{color:var(--night-ink);border:1px solid rgba(255,255,255,.2)}
 .btn.ghost:hover{background:rgba(255,255,255,.07)}
@@ -87,7 +82,7 @@ h1 .hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--mark) 
 /* carte d'identité pro */
 .idcard{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:1.6rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform-style:preserve-3d;transition:transform .2s ease-out;animation:in 1s .4s var(--ease) both;min-width:0}
 @keyframes in{from{opacity:0;transform:translateY(30px) rotate(2deg)}}
-.avatar{width:4.5rem;height:4.5rem;border-radius:18px;display:grid;place-items:center;font:800 1.6rem var(--display);color:#101A30;background:linear-gradient(135deg,var(--mark),#FFE29A)}
+.avatar{width:4.5rem;height:4.5rem;border-radius:18px;display:grid;place-items:center;font:800 1.6rem var(--display);color:#0E0E10;background:linear-gradient(135deg,var(--mark),#E3D5B3)}
 .idcard h3{font:700 1.25rem var(--display);margin:1rem 0 .1rem}
 .idcard .sub{color:var(--night-muted);font-size:.95rem}
 .idcard dl{margin:1.2rem 0 0;display:grid;gap:.7rem}
@@ -173,15 +168,15 @@ h2 em{font-style:normal;color:var(--accent)}
 .col{transform-box:fill-box;transform-origin:bottom;animation:grow 2.5s var(--ease) infinite alternate}
 
 /* story */
-.story{position:relative;max-width:26rem;margin:0 auto;aspect-ratio:9/15;max-height:78vh;border-radius:28px;overflow:hidden;background:var(--night);box-shadow:0 40px 80px -30px rgba(16,26,48,.55);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.story{position:relative;max-width:26rem;margin:0 auto;aspect-ratio:9/15;max-height:78vh;border-radius:28px;overflow:hidden;background:var(--night);box-shadow:0 40px 80px -30px rgba(10,10,12,.55);user-select:none;-webkit-user-select:none;touch-action:pan-y}
 .story .bars{position:absolute;top:14px;left:14px;right:14px;display:flex;gap:5px;z-index:4}
 .story .bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden;position:relative}
 .story .bars i::after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(var(--f,0));transform-origin:left}
 .slide{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity .6s var(--ease),transform .9s var(--ease)}
 .slide.on{opacity:1;transform:none}
 .scene{position:absolute;inset:0;width:100%;height:100%}
-.cap{position:absolute;left:0;right:0;bottom:0;padding:5rem 1.5rem 1.6rem;background:linear-gradient(transparent,rgba(5,9,20,.85));color:#fff}
-.cap .time{font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#F2BE45}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:5rem 1.5rem 1.6rem;background:linear-gradient(transparent,rgba(6,6,7,.85));color:#fff}
+.cap .time{font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#C8B68E}
 .cap h3{font:800 1.6rem/1.1 var(--display);margin:.4rem 0 .4rem;letter-spacing:-.02em}
 .cap p{margin:0;color:rgba(255,255,255,.82);font-size:1rem}
 .slide.on .cap > *{animation:capIn .7s var(--ease) both}
@@ -206,15 +201,15 @@ h2 em{font-style:normal;color:var(--accent)}
 .offer p{margin:0;color:var(--muted);flex:1}
 .o-tag{align-self:flex-start;font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:.3rem .75rem;border-radius:999px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
 .o-cta{font:600 1rem var(--body);color:var(--accent);margin-top:.6rem}
-.offer.main{background:linear-gradient(150deg,var(--mark),#FFE08A);border-color:var(--mark);color:#101A30;animation:glow 2.6s ease-in-out infinite alternate}
+.offer.main{background:linear-gradient(150deg,var(--mark),#E3D5B3);border-color:var(--mark);color:#0E0E10;animation:glow 2.6s ease-in-out infinite alternate}
 .offer.main p{color:#2f2a1a}
-.offer.main .o-tag{background:#101A30;color:var(--mark)}
-.offer.main .o-cta{color:#101A30}
+.offer.main .o-tag{background:#0E0E10;color:var(--mark)}
+.offer.main .o-cta{color:#0E0E10}
 
 /* bouton flottant */
-.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.2rem;border-radius:999px;background:var(--mark);color:#101A30;font:600 .95rem var(--body);text-decoration:none;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);animation:bob 3s ease-in-out infinite}
-.fab .dot{background:#0F9D63}
-.fab .dot::after{background:#0F9D63}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.2rem;border-radius:999px;background:var(--mark);color:#0E0E10;font:600 .95rem var(--body);text-decoration:none;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);animation:bob 3s ease-in-out infinite}
+.fab .dot{background:#5C7A57}
+.fab .dot::after{background:#5C7A57}
 @keyframes bob{50%{transform:translateY(-4px)}}
 
 /* deux forces */
@@ -222,17 +217,17 @@ h2 em{font-style:normal;color:var(--accent)}
 .pillar{position:relative;border-radius:28px;padding:2.2rem;overflow:hidden;min-width:0;border:1px solid var(--line);background:var(--surface);transition:transform .4s var(--ease)}
 .pillar:hover{transform:translateY(-4px)}
 .pillar::after{content:"";position:absolute;width:18rem;height:18rem;border-radius:50%;right:-6rem;top:-6rem;filter:blur(50px);opacity:.25;animation:float 16s ease-in-out infinite alternate;pointer-events:none}
-.pillar.social::after{background:#E8618C}
+.pillar.social::after{background:#9A7F76}
 .pillar.strat::after{background:var(--accent)}
 .badge{display:inline-block;font:500 .74rem var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:.35rem .8rem;border-radius:999px}
-.social .badge{background:color-mix(in srgb,#E8618C 16%,transparent);color:#C2406B}
+.social .badge{background:color-mix(in srgb,#9A7F76 16%,transparent);color:#6B5550}
 .strat .badge{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
 .pillar h3{font:800 clamp(1.6rem,3vw,2.1rem)/1.1 var(--display);letter-spacing:-.02em;margin:1rem 0 .6rem}
 .pillar .intro{color:var(--muted);margin:0 0 1.2rem;font-size:1.08rem}
 .pillar ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
 .pillar li{position:relative;padding-left:1.6rem}
 .pillar li::before{content:"";position:absolute;left:0;top:.6rem;width:.6rem;height:.6rem;border-radius:3px;transform:rotate(45deg)}
-.social li::before{background:#E8618C}
+.social li::before{background:#9A7F76}
 .strat li::before{background:var(--accent)}
 .pillar li b{color:var(--ink)}
 
@@ -245,7 +240,7 @@ h2 em{font-style:normal;color:var(--accent)}
 .path li{display:grid;gap:.15rem;padding:1rem 1.2rem;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);position:relative}
 .path li span{font:500 .7rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--night-muted)}
 .path li b{font:700 1.1rem var(--display)}
-.path li:last-child{background:var(--mark);color:#101A30;border-color:var(--mark);animation:glow 2.6s ease-in-out infinite alternate}
+.path li:last-child{background:var(--mark);color:#0E0E10;border-color:var(--mark);animation:glow 2.6s ease-in-out infinite alternate}
 .path li:last-child span{color:#3a3320}
 @keyframes glow{to{box-shadow:0 0 40px -6px color-mix(in srgb,var(--mark) 80%,transparent)}}
 
@@ -280,7 +275,7 @@ h2 em{font-style:normal;color:var(--accent)}
 .c-row .lbl{font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--night-muted);min-width:6rem}
 .c-row .val{font:600 1.05rem var(--body);overflow-wrap:anywhere;flex:1;min-width:0;color:var(--night-ink);text-decoration:none}
 .copy{font:500 .74rem var(--mono);padding:.4rem .85rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--night-ink);cursor:pointer}
-.copy:hover{background:var(--mark);color:#101A30;border-color:var(--mark)}
+.copy:hover{background:var(--mark);color:#0E0E10;border-color:var(--mark)}
 footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 
 @media (max-width:860px){
@@ -409,27 +404,27 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       <div class="slide s1 on">
         <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="400" height="300" fill="url(#g1)"/>
-          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F5BEA"/><stop offset="1" stop-color="#0B1222"/></linearGradient></defs>
-          <g class="drift"><rect x="120" y="70" width="160" height="110" rx="10" fill="#fff" opacity=".95"/><rect x="138" y="92" width="90" height="10" rx="5" fill="#2F5BEA"/><rect x="138" y="112" width="124" height="8" rx="4" fill="#C9D4F2"/><rect x="138" y="128" width="110" height="8" rx="4" fill="#C9D4F2"/><rect x="138" y="144" width="70" height="8" rx="4" fill="#F2BE45"/><rect x="105" y="180" width="190" height="10" rx="5" fill="#fff" opacity=".6"/></g>
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46576F"/><stop offset="1" stop-color="#0B0B0C"/></linearGradient></defs>
+          <g class="drift"><rect x="120" y="70" width="160" height="110" rx="10" fill="#fff" opacity=".95"/><rect x="138" y="92" width="90" height="10" rx="5" fill="#46576F"/><rect x="138" y="112" width="124" height="8" rx="4" fill="#3A3D44"/><rect x="138" y="128" width="110" height="8" rx="4" fill="#3A3D44"/><rect x="138" y="144" width="70" height="8" rx="4" fill="#C8B68E"/><rect x="105" y="180" width="190" height="10" rx="5" fill="#fff" opacity=".6"/></g>
         </svg>
         <div class="cap"><span class="time">Lundi → vendredi · journée</span><h3>En cours de BTS GPME</h3><p>Au Lycée Chevrollier, j'apprends la gestion d'une PME&nbsp;: clients, fournisseurs, risques, personnel.</p></div>
       </div>
       <div class="slide s2">
         <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F2937"/><stop offset="1" stop-color="#4B5563"/></linearGradient></defs>
+          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#18181B"/><stop offset="1" stop-color="#3A3A3F"/></linearGradient></defs>
           <rect width="400" height="300" fill="url(#g2)"/>
           <line x1="80" y1="80" x2="320" y2="80" stroke="#E5E7EB" stroke-width="4"/>
-          <g class="swing"><path d="M140 80 l0 16 l-26 22 l52 0 z" fill="none" stroke="#E5E7EB" stroke-width="3"/><rect x="118" y="118" width="44" height="80" rx="4" fill="#F2BE45"/></g>
+          <g class="swing"><path d="M140 80 l0 16 l-26 22 l52 0 z" fill="none" stroke="#E5E7EB" stroke-width="3"/><rect x="118" y="118" width="44" height="80" rx="4" fill="#C8B68E"/></g>
           <g class="swing d2"><path d="M220 80 l0 16 l-26 22 l52 0 z" fill="none" stroke="#E5E7EB" stroke-width="3"/><rect x="198" y="118" width="44" height="86" rx="4" fill="#fff"/></g>
-          <g class="swing d3"><path d="M290 80 l0 16 l-26 22 l52 0 z" fill="none" stroke="#E5E7EB" stroke-width="3"/><rect x="268" y="118" width="44" height="76" rx="4" fill="#86A6FF"/></g>
+          <g class="swing d3"><path d="M290 80 l0 16 l-26 22 l52 0 z" fill="none" stroke="#E5E7EB" stroke-width="3"/><rect x="268" y="118" width="44" height="76" rx="4" fill="#8E9BB0"/></g>
         </svg>
         <div class="cap"><span class="time">12 h par semaine</span><h3>Conseiller de vente chez Zara</h3><p>Au rayon homme, je conseille les clients et je mets en valeur les collections.</p></div>
       </div>
       <div class="slide s3">
         <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8622C"/><stop offset="1" stop-color="#8A1F11"/></linearGradient></defs>
+          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8C6A4A"/><stop offset="1" stop-color="#2A1E17"/></linearGradient></defs>
           <rect width="400" height="300" fill="url(#g3)"/>
-          <g class="pulse"><circle cx="200" cy="140" r="70" fill="#FFD27A" opacity=".25"/><circle cx="200" cy="140" r="46" fill="#FFD27A" opacity=".45"/></g>
+          <g class="pulse"><circle cx="200" cy="140" r="70" fill="#D9C9A3" opacity=".25"/><circle cx="200" cy="140" r="46" fill="#D9C9A3" opacity=".45"/></g>
           <g fill="#fff"><path class="star" d="M110 230 l7 14 15 2 -11 10 3 15 -14-7 -14 7 3-15 -11-10 15-2z"/><path class="star d2" d="M155 230 l7 14 15 2 -11 10 3 15 -14-7 -14 7 3-15 -11-10 15-2z"/><path class="star d3" d="M200 230 l7 14 15 2 -11 10 3 15 -14-7 -14 7 3-15 -11-10 15-2z"/><path class="star d4" d="M245 230 l7 14 15 2 -11 10 3 15 -14-7 -14 7 3-15 -11-10 15-2z"/><path class="star d5" d="M290 230 l7 14 15 2 -11 10 3 15 -14-7 -14 7 3-15 -11-10 15-2z"/></g>
           <text x="200" y="152" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="40" fill="#fff">CDG</text>
         </svg>
@@ -437,19 +432,19 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       </div>
       <div class="slide s4">
         <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2BE45"/><stop offset="1" stop-color="#C98A12"/></linearGradient></defs>
+          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C8B68E"/><stop offset="1" stop-color="#8E7B55"/></linearGradient></defs>
           <rect width="400" height="300" fill="url(#g4)"/>
-          <g class="drift"><rect x="125" y="55" width="150" height="190" rx="8" fill="#FFFDF5"/><rect x="125" y="55" width="16" height="190" fill="#101A30" opacity=".85"/>
-          <g stroke="#101A30" stroke-width="3" stroke-linecap="round"><line class="write" x1="155" y1="95" x2="255" y2="95"/><line class="write d2" x1="155" y1="120" x2="240" y2="120"/><line class="write d3" x1="155" y1="145" x2="250" y2="145"/><line class="write d4" x1="155" y1="170" x2="225" y2="170"/></g></g>
+          <g class="drift"><rect x="125" y="55" width="150" height="190" rx="8" fill="#F2F0EB"/><rect x="125" y="55" width="16" height="190" fill="#0E0E10" opacity=".85"/>
+          <g stroke="#0E0E10" stroke-width="3" stroke-linecap="round"><line class="write" x1="155" y1="95" x2="255" y2="95"/><line class="write d2" x1="155" y1="120" x2="240" y2="120"/><line class="write d3" x1="155" y1="145" x2="250" y2="145"/><line class="write d4" x1="155" y1="170" x2="225" y2="170"/></g></g>
         </svg>
         <div class="cap"><span class="time">Sur le terrain</span><h3>Mon carnet d'amélioration</h3><p>J'observe, je note ce qui bloque et ce que je tente. Ces notes deviennent ensuite des plans d'action.</p></div>
       </div>
       <div class="slide s5">
         <svg class="scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#1E1B4B"/></linearGradient></defs>
+          <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B3550"/><stop offset="1" stop-color="#17161D"/></linearGradient></defs>
           <rect width="400" height="300" fill="url(#g5)"/>
           <g fill="#fff"><path d="M120 120 L200 75 L280 120 Z" opacity=".95"/><rect x="130" y="125" width="140" height="10" opacity=".95"/><rect x="140" y="140" width="14" height="70" class="col"/><rect x="172" y="140" width="14" height="70" class="col d2"/><rect x="214" y="140" width="14" height="70" class="col d3"/><rect x="246" y="140" width="14" height="70" class="col d4"/><rect x="120" y="212" width="160" height="12"/></g>
-          <g class="pulse"><circle cx="200" cy="100" r="8" fill="#F2BE45"/></g>
+          <g class="pulse"><circle cx="200" cy="100" r="8" fill="#C8B68E"/></g>
         </svg>
         <div class="cap"><span class="time">Engagement</span><h3>Élu au Conseil départemental</h3><p>Au comité protection de l'enfance, je participe aux décisions pour les jeunes de Maine-et-Loire.</p></div>
       </div>
@@ -514,7 +509,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
     </div>
     <div class="cases">
       <article class="case wide reveal">
-        <div class="visual" aria-hidden="true"><svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v1" x1="0" x2="1"><stop offset="0" stop-color="#E8622C"/><stop offset="1" stop-color="#F2BE45"/></linearGradient></defs><rect width="800" height="200" fill="url(#v1)"/><g fill="#fff" opacity=".9"><rect class="grow" x="470" y="120" width="40" height="60" rx="6"/><rect class="grow d2" x="530" y="95" width="40" height="85" rx="6"/><rect class="grow d3" x="590" y="70" width="40" height="110" rx="6"/><rect class="grow d4" x="650" y="40" width="40" height="140" rx="6"/></g><g fill="#fff"><path class="star" d="M80 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d2" d="M140 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d3" d="M200 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d4" d="M260 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d5" d="M320 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/></g></svg></div>
+        <div class="visual" aria-hidden="true"><svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v1" x1="0" x2="1"><stop offset="0" stop-color="#8C6A4A"/><stop offset="1" stop-color="#C8B68E"/></linearGradient></defs><rect width="800" height="200" fill="url(#v1)"/><g fill="#fff" opacity=".9"><rect class="grow" x="470" y="120" width="40" height="60" rx="6"/><rect class="grow d2" x="530" y="95" width="40" height="85" rx="6"/><rect class="grow d3" x="590" y="70" width="40" height="110" rx="6"/><rect class="grow d4" x="650" y="40" width="40" height="140" rx="6"/></g><g fill="#fff"><path class="star" d="M80 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d2" d="M140 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d3" d="M200 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d4" d="M260 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/><path class="star d5" d="M320 80 l9 18 20 3 -14 14 3 20 -18-9 -18 9 3-20 -14-14 20-3z"/></g></svg></div>
         <span class="where">Burger King Angers Grand Maine · sept. → oct. 2026</span>
         <h3>Faire remonter les avis clients d'un restaurant</h3>
         <p>Recruté pour piloter l'expérience client, j'ai commencé par observer. Après chaque rush, je notais dans un carnet ce qui avait bloqué et ce que j'avais tenté. À partir de ces notes, j'ai rédigé un plan d'action pour me rapprocher de l'objectif de note Google fixé par l'enseigne.</p>
@@ -527,7 +522,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       </article>
 
       <article class="case reveal">
-        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F5BEA"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><rect width="400" height="200" fill="url(#v2)"/><g class="roll"><rect x="165" y="50" width="70" height="100" rx="12" fill="#F2BE45"/><path d="M185 50 v-16 h30 v16" fill="none" stroke="#fff" stroke-width="6"/><line x1="185" y1="70" x2="185" y2="135" stroke="#C98A12" stroke-width="4"/><line x1="215" y1="70" x2="215" y2="135" stroke="#C98A12" stroke-width="4"/><circle cx="180" cy="158" r="7" fill="#101A30"/><circle cx="220" cy="158" r="7" fill="#101A30"/></g><line x1="0" y1="166" x2="400" y2="166" stroke="#fff" stroke-opacity=".3" stroke-width="2" stroke-dasharray="12 10" class="road"/></svg></div>
+        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46576F"/><stop offset="1" stop-color="#3B3550"/></linearGradient></defs><rect width="400" height="200" fill="url(#v2)"/><g class="roll"><rect x="165" y="50" width="70" height="100" rx="12" fill="#C8B68E"/><path d="M185 50 v-16 h30 v16" fill="none" stroke="#fff" stroke-width="6"/><line x1="185" y1="70" x2="185" y2="135" stroke="#8E7B55" stroke-width="4"/><line x1="215" y1="70" x2="215" y2="135" stroke="#8E7B55" stroke-width="4"/><circle cx="180" cy="158" r="7" fill="#0E0E10"/><circle cx="220" cy="158" r="7" fill="#0E0E10"/></g><line x1="0" y1="166" x2="400" y2="166" stroke="#fff" stroke-opacity=".3" stroke-width="2" stroke-dasharray="12 10" class="road"/></svg></div>
         <span class="where">B&amp;M Angers Atoll · stage mai → juin 2026</span>
         <h3>Vendre une valise, de l'accueil à l'encaissement</h3>
         <p>Au rayon bagagerie, j'ai analysé ma démarche de vente&nbsp;: découverte du besoin (durée du voyage, transport, budget), argumentation, puis conclusion. J'en ai fait une fiche d'analyse pour mon épreuve de BTS.</p>
@@ -535,7 +530,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       </article>
 
       <article class="case reveal">
-        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs><rect width="400" height="200" fill="url(#v3)"/><path class="wave" d="M0 120 q50 -18 100 0 t100 0 t100 0 t100 0 t100 0 v80 h-500 z" fill="#fff" opacity=".25"/><path class="wave d2" d="M0 140 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v60 h-500 z" fill="#fff" opacity=".35"/><g font-family="IBM Plex Mono, monospace" font-size="13" fill="#fff" text-anchor="middle"><circle cx="90" cy="60" r="16" fill="#fff"/><path d="M83 60 l5 5 9-10" stroke="#0E7490" stroke-width="3" fill="none"/><text x="90" y="95">DEVIS</text><line x1="110" y1="60" x2="180" y2="60" stroke="#fff" stroke-width="2"/><circle cx="200" cy="60" r="16" fill="#fff"/><path d="M193 60 l5 5 9-10" stroke="#0E7490" stroke-width="3" fill="none"/><text x="200" y="95">COMMANDE</text><line x1="220" y1="60" x2="290" y2="60" stroke="#fff" stroke-width="2"/><circle cx="310" cy="60" r="16" fill="#F2BE45" class="pulse"/><text x="310" y="95">LIVRAISON</text></g></svg></div>
+        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4D6B6E"/><stop offset="1" stop-color="#1E2D30"/></linearGradient></defs><rect width="400" height="200" fill="url(#v3)"/><path class="wave" d="M0 120 q50 -18 100 0 t100 0 t100 0 t100 0 t100 0 v80 h-500 z" fill="#fff" opacity=".25"/><path class="wave d2" d="M0 140 q50 -14 100 0 t100 0 t100 0 t100 0 t100 0 v60 h-500 z" fill="#fff" opacity=".35"/><g font-family="IBM Plex Mono, monospace" font-size="13" fill="#fff" text-anchor="middle"><circle cx="90" cy="60" r="16" fill="#fff"/><path d="M83 60 l5 5 9-10" stroke="#1E2D30" stroke-width="3" fill="none"/><text x="90" y="95">DEVIS</text><line x1="110" y1="60" x2="180" y2="60" stroke="#fff" stroke-width="2"/><circle cx="200" cy="60" r="16" fill="#fff"/><path d="M193 60 l5 5 9-10" stroke="#1E2D30" stroke-width="3" fill="none"/><text x="200" y="95">COMMANDE</text><line x1="220" y1="60" x2="290" y2="60" stroke="#fff" stroke-width="2"/><circle cx="310" cy="60" r="16" fill="#C8B68E" class="pulse"/><text x="310" y="95">LIVRAISON</text></g></svg></div>
         <span class="where">B&amp;M Angers Atoll · stage</span>
         <h3>Suivre une commande de piscine jusqu'à la livraison</h3>
         <p>J'ai suivi le cycle complet&nbsp;: devis, commande, relance et livraison chez le client. Un travail de rigueur où chaque étape oubliée se paie en mécontentement.</p>
@@ -543,7 +538,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       </article>
 
       <article class="case reveal">
-        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E1B4B"/><stop offset="1" stop-color="#4338CA"/></linearGradient></defs><rect width="400" height="200" fill="url(#v4)"/><circle cx="330" cy="45" r="18" fill="#FFE9A8"/><rect x="120" y="40" width="160" height="160" fill="#0B1222"/><g fill="#F2BE45"><rect class="win" x="140" y="60" width="22" height="18"/><rect class="win d2" x="189" y="60" width="22" height="18"/><rect class="win d3" x="238" y="60" width="22" height="18"/><rect class="win d4" x="140" y="96" width="22" height="18"/><rect class="win" x="189" y="96" width="22" height="18"/><rect class="win d2" x="238" y="96" width="22" height="18"/><rect class="win d3" x="140" y="132" width="22" height="18"/><rect class="win d5" x="238" y="132" width="22" height="18"/></g><rect x="186" y="160" width="28" height="40" fill="#F2BE45" opacity=".9"/></svg></div>
+        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17161D"/><stop offset="1" stop-color="#2E3346"/></linearGradient></defs><rect width="400" height="200" fill="url(#v4)"/><circle cx="330" cy="45" r="18" fill="#FFE9A8"/><rect x="120" y="40" width="160" height="160" fill="#0B0B0C"/><g fill="#C8B68E"><rect class="win" x="140" y="60" width="22" height="18"/><rect class="win d2" x="189" y="60" width="22" height="18"/><rect class="win d3" x="238" y="60" width="22" height="18"/><rect class="win d4" x="140" y="96" width="22" height="18"/><rect class="win" x="189" y="96" width="22" height="18"/><rect class="win d2" x="238" y="96" width="22" height="18"/><rect class="win d3" x="140" y="132" width="22" height="18"/><rect class="win d5" x="238" y="132" width="22" height="18"/></g><rect x="186" y="160" width="28" height="40" fill="#C8B68E" opacity=".9"/></svg></div>
         <span class="where">Crous d'Angers Belle-Beille · 2025 → 2026</span>
         <h3>Être le relais des étudiants en résidence</h3>
         <p>Comme étudiant référent, j'accueillais les résidents, je faisais remonter leurs demandes et je transmettais les informations de l'équipe. J'y ai appris la discrétion et le sens du service public.</p>
@@ -551,7 +546,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
       </article>
 
       <article class="case reveal">
-        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C2410C"/><stop offset=".5" stop-color="#F59E0B"/><stop offset=".5" stop-color="#0EA5E9"/><stop offset="1" stop-color="#075985"/></linearGradient></defs><rect width="400" height="200" fill="url(#v5)"/><g class="flicker"><path d="M100 160 c-30-30 0-60 10-90 c10 30 40 40 20 90 z" fill="#FFE08A"/><path d="M108 160 c-14-16 0-34 6-50 c8 18 20 26 8 50 z" fill="#fff"/></g><path class="wave" d="M200 130 q25 -15 50 0 t50 0 t50 0 t50 0 t50 0 v70 h-250 z" fill="#fff" opacity=".35"/><path class="wave d2" d="M200 150 q25 -12 50 0 t50 0 t50 0 t50 0 t50 0 v50 h-250 z" fill="#fff" opacity=".5"/></svg></div>
+        <div class="visual" aria-hidden="true"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="v5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6E4F3A"/><stop offset=".5" stop-color="#B89A6A"/><stop offset=".5" stop-color="#4F6378"/><stop offset="1" stop-color="#1E2733"/></linearGradient></defs><rect width="400" height="200" fill="url(#v5)"/><g class="flicker"><path d="M100 160 c-30-30 0-60 10-90 c10 30 40 40 20 90 z" fill="#E3D5B3"/><path d="M108 160 c-14-16 0-34 6-50 c8 18 20 26 8 50 z" fill="#fff"/></g><path class="wave" d="M200 130 q25 -15 50 0 t50 0 t50 0 t50 0 t50 0 v70 h-250 z" fill="#fff" opacity=".35"/><path class="wave d2" d="M200 150 q25 -12 50 0 t50 0 t50 0 t50 0 t50 0 v50 h-250 z" fill="#fff" opacity=".5"/></svg></div>
         <span class="where">Braise et Océan · été 2026</span>
         <h3>Assistant de gestion dans un restaurant</h3>
         <p>Pendant deux mois, j'ai été le soutien polyvalent du restaurant&nbsp;: organisation, tâches administratives et coup de main en service quand il le fallait.</p>
@@ -683,11 +678,11 @@ document.querySelectorAll('.case').forEach(c=>c.addEventListener('pointermove',e
       if(d<120){p.vx+=dx/d*.06;p.vy+=dy/d*.06}
       p.vx*=.985;p.vy*=.985;p.x+=p.vx+(Math.random()-.5)*.05;p.y+=p.vy+(Math.random()-.5)*.05;
       if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle='rgba(242,190,69,.8)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle='rgba(200,182,142,.8)';ctx.fill();
     }
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-      if(d<110){ctx.strokeStyle='rgba(134,166,255,'+(.28*(1-d/110))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+      if(d<110){ctx.strokeStyle='rgba(168,165,158,'+(.28*(1-d/110))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
     }
   })();
 })();
