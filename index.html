@@ -297,6 +297,27 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
   section{padding-block:4.5rem 0}
 }
 @media (max-width:440px){nav .links{display:none}}
+/* ---------- fêtes de fin d'année (visible jusqu'au 10 janv. 2027) ---------- */
+.snow{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.xmas{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:46;width:min(22rem,calc(100vw - 32px));padding:1.3rem 1.4rem 1.2rem;border-radius:22px;color:var(--night-ink);
+  background:linear-gradient(160deg,rgba(32,30,27,.92),rgba(12,12,13,.94));border:1px solid color-mix(in srgb,var(--mark) 35%,transparent);
+  box-shadow:0 24px 60px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  overflow:hidden;isolation:isolate;transform:translateY(calc(100% + 40px));opacity:0;transition:transform .9s var(--ease),opacity .6s var(--ease)}
+.xmas.on{transform:none;opacity:1}
+.xmas::before{content:"";position:absolute;width:14rem;height:14rem;border-radius:50%;background:var(--mark);filter:blur(60px);opacity:.16;top:-7rem;right:-5rem;z-index:-1}
+.xmas .tree{position:absolute;right:1rem;top:1rem;width:3.2rem;height:auto;opacity:.95}
+.xmas .tree .star{transform-origin:24px 6px;animation:twinkle 2.6s ease-in-out infinite}
+@keyframes twinkle{50%{transform:scale(1.25) rotate(20deg);opacity:.75}}
+.xmas .kicker{color:var(--mark);display:block;margin-bottom:.55rem}
+.xmas h4{font:700 1.18rem/1.25 var(--display);letter-spacing:-.01em;margin:0 3.6rem .5rem 0;text-wrap:balance}
+.xmas p{margin:0;color:var(--night-muted);font-size:.95rem;line-height:1.55}
+.xmas .sign{display:flex;align-items:center;gap:.6rem;margin-top:.9rem;font:600 .95rem var(--display);color:var(--night-ink)}
+.xmas .sign::before{content:"";width:1.6rem;height:1px;background:var(--mark)}
+.xmas .close{position:absolute;right:.55rem;bottom:.55rem;width:2rem;height:2rem;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--night-muted);font:400 1.1rem/1 var(--body);cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease)}
+.xmas .close:hover{background:rgba(255,255,255,.1);color:var(--night-ink)}
+.logo .flake{display:inline-block;color:var(--mark);font-size:.75em;margin-left:.3em;vertical-align:.2em;animation:twinkle 3s ease-in-out infinite}
+@media (max-width:640px){.xmas{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   h1 .hl{background-size:100% 100%}
@@ -307,6 +328,22 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <a class="fab" href="#contact"><span class="dot"></span>Me contacter</a>
+
+<aside class="xmas" id="xmas" role="status" aria-label="Vœux de fin d'année" hidden>
+  <svg class="tree" viewBox="0 0 48 64" aria-hidden="true">
+    <path class="star" d="M24 1l1.6 3.4 3.7.5-2.7 2.6.7 3.7L24 9.4l-3.3 1.8.7-3.7-2.7-2.6 3.7-.5z" fill="#D2BE8E"/>
+    <g fill="none" stroke="#D2BE8E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 11 12 30h7L8 46h9L4 58h40L31 46h9L29 30h7z"/>
+      <path d="M24 58v5" />
+    </g>
+    <g fill="#F4F2ED"><circle cx="20" cy="36" r="1.3"/><circle cx="29" cy="42" r="1.3"/><circle cx="16" cy="52" r="1.3"/><circle cx="33" cy="54" r="1.3"/><circle cx="25" cy="26" r="1.1"/></g>
+  </svg>
+  <span class="kicker">Fêtes de fin d'année</span>
+  <h4>Victor vous souhaite de merveilleuses fêtes</h4>
+  <p>auprès de vos proches. Joyeux Noël et une très belle année 2027, riche en projets, en réussites et en rencontres.</p>
+  <div class="sign">Victor</div>
+  <button class="close" type="button" aria-label="Fermer le message">×</button>
+</aside>
 
 <nav class="gut">
   <div class="wrap">
@@ -319,6 +356,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="grid-bg"></div>
   <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+  <canvas id="snow" class="snow" aria-hidden="true" hidden></canvas>
   <div class="wrap">
     <div style="min-width:0">
       <span class="status"><span class="dot"></span>En stage chez SIFA Logistics · Roissy-CDG · nov. 2026 → fév. 2027</span>
@@ -614,7 +652,7 @@ footer{padding-block:1rem 3rem;font:400 .8rem var(--mono);color:var(--muted);dis
     </div>
   </div>
 
-  <footer><span>© 2026 Victor Lefebvre Brito De Oliveira</span><span>Angers · Maine-et-Loire</span></footer>
+  <footer><span>© 2026 Victor Lefebvre Brito De Oliveira</span><span class="xmas-only" hidden style="color:var(--accent)">✦ Belles fêtes de fin d'année</span><span>Angers · Maine-et-Loire</span></footer>
 </div>
 </main>
 
@@ -713,6 +751,43 @@ document.querySelectorAll('.case').forEach(c=>c.addEventListener('pointermove',e
     bars[i].style.setProperty('--f',Math.min(t/DUR,1));
     requestAnimationFrame(loop);
   })(performance.now());
+})();
+
+/* fêtes de fin d'année : carte de vœux + neige dorée, jusqu'au 10 janvier 2027 */
+(function(){
+  if(new Date()>=new Date(2027,0,11))return;
+  document.querySelectorAll('.xmas-only').forEach(el=>el.hidden=false);
+  const logo=document.querySelector('.logo');
+  if(logo){const f=document.createElement('span');f.className='flake';f.setAttribute('aria-hidden','true');f.textContent='✦';logo.appendChild(f)}
+
+  const card=document.getElementById('xmas');let seen=false;
+  try{seen=sessionStorage.getItem('xmas-closed')==='1'}catch(e){}
+  if(card&&!seen){
+    card.hidden=false;
+    setTimeout(()=>card.classList.add('on'),1800);
+    card.querySelector('.close').addEventListener('click',()=>{
+      card.classList.remove('on');setTimeout(()=>card.hidden=true,900);
+      try{sessionStorage.setItem('xmas-closed','1')}catch(e){}
+    });
+  }
+
+  const c=document.getElementById('snow');if(!c||reduce)return;
+  c.hidden=false;
+  const ctx=c.getContext('2d'),hero=c.parentElement;let W,H,fl=[];
+  const size=()=>{const r=hero.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;c.width=W*d;c.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    const n=Math.round(Math.min(60,W*H/16000));fl=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.9+.5,s:Math.random()*.45+.2,a:Math.random()*6.28,g:Math.random()<.3}))};
+  size();addEventListener('resize',size);
+  let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+  (function loop(){
+    requestAnimationFrame(loop);if(!vis)return;
+    ctx.clearRect(0,0,W,H);
+    for(const f of fl){
+      f.a+=.01;f.y+=f.s;f.x+=Math.sin(f.a)*.3;
+      if(f.y>H+4){f.y=-4;f.x=Math.random()*W}
+      ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,7);
+      ctx.fillStyle=f.g?'rgba(210,190,142,.75)':'rgba(244,242,237,.55)';ctx.fill();
+    }
+  })();
 })();
 
 /* copier */
